@@ -1,6 +1,6 @@
 const mongoose=require('mongoose');
-
-const mongoURI="mongodb://localhost:27017/Authentication?readPreference=primary&appname=MongoDB%20Compass&directConnection=true&ssl=false"
+require("dotenv").config();
+const mongoURI=`${process.env.URL}`
 
 const connectToMongo=()=>{
     mongoose.connect(mongoURI,()=>{

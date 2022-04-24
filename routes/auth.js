@@ -5,10 +5,11 @@ const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const fetchuser=require('../middleware/fetchuser');
 const router=express.Router();
+require("dotenv").config();
 
 const { body, validationResult, sanitizeBody } = require('express-validator');
 
-const JWT_SECRET="Vikasisagoodboy";
+const JWT_SECRET=`${process.env.JWTSECRET}`;
 //Rout 1:Create a user using: POST "/api/auth". Does'nt require auth
 router.post('/createuser', [
   body('name', 'Enter a valid name').isLength({ min: 3 }),
